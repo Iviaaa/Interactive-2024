@@ -1,0 +1,73 @@
+
+.box{      
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.bottom {
+    z-index:2;
+}
+
+body {
+    background-image: url('images/16263274_digital-glitch-9186-3-1.jpg'); 
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: 50% 50%;
+    position: fixed;
+    margin:0;
+}
+
+.blackbox{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    position: absolute;
+}
+
+.blackbox:hover{
+    background-color:white;
+}
+
+h1{
+    font-family: Arial; 
+    font-size: 200px;
+    color:white;
+}
+
+#projectlist{
+    position: absolute;
+    right:0px;
+    top:20%;
+    font-family: Helvetica; 
+    text-align: left; 
+    font-size: 24px;
+}
+
+a:link {
+    color:white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+a:visited {
+    color:white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(29, 240, 177);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+  }
