@@ -1,6 +1,6 @@
 
-var numRow = screen.height / 30;
-var numCol = screen.width / 30;
+var numRow = screen.height / 50;
+var numCol = screen.width / 50;
 var newSqr;
 var canvas = document.getElementById("canvas");
 
@@ -16,8 +16,8 @@ function createCanvas(){
             console.log("one elem");
             newSqr = document.createElement('div');
             newSqr.className = 'blackbox';
-            newSqr.style.top = i*30 + "px";
-            newSqr.style.left = j*30 + "px";
+            newSqr.style.top = i*50 + "px";
+            newSqr.style.left = j*50 + "px";
             newSqr.style.display = "block";
             newSqr.addEventListener("mouseout", removeBox);
             canvas.appendChild(newSqr);
