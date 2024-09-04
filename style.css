@@ -76,7 +76,7 @@ a:visited {
     margin: 10px 10px;
   }
 
-  #textcontainer{
+  .textcontainer{
     font-family: Helvetica; 
     font-size: 24px;
     position:fixed;
@@ -85,3 +85,32 @@ a:visited {
     z-index:3;
     margin: 20px 50px;
   }
+
+  .description{
+    font-family: Helvetica; 
+    font-size: 24px;
+  }
+
+  #videobox{
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%,-50%);
+  }
+
+  #mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+  }
+  
+  #mydivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+  }
+
