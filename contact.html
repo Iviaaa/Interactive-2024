@@ -1,40 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css">
-    <title>Zivyskidski</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js GLSL Shader</title>
+    <link rel="stylesheet" href="style_new.css">
     <link rel="icon" type="image/png" href="images/favcon.png" />
     <style>
-            body {
-              background-image: url('images/TDMovieOut.0 (1).gif'); 
-              background-repeat: repeat;
-              background-attachment: fixed;
-              background-size: 100% 100%;
-              position: fixed;
-              margin:0;
-          }
-            </style>
-    <!--LINK JQUERY-->
-    <script type="text/javascript" src="jquery-3.7.1.min.js"></script>
+        #emailadd{
+            position: absolute;
+            z-index: 2;
+            color: white;
+            /* font-family: "teletactileRus"; */
+            font-size: 70px;
+            display: flex;
+            justify-content: space-evenly; 
+            width: 50vw;
+            bottom: 50vh;
+            left: 50vw;
+            transform: translate(-50%,-50%);
+        }
+    </style>
 </head>
 
 <body>
+    <span id="entrance">
+        <a href="index.html" >[ [] ]</a>
+        <a href="bio.html">[ bio ]</a>
+        <a href="projects.html">[ projects ]</a>
+        <a href="contact.html" class="currentLink">[ contact ]</a>
+    </span>
 
-    <div class="box" style="display: inline-block">
-        <h1 style="font-size:72px; float:left; position: fixed; left: 10vw ;top: 21vh">hongting.zhu<br>@yale.edu</h1>
-        <div style="float:right; position: fixed; left: 60vw; top: 22vh" id="projectlist">
-                <a href="index.html">Welcome</a><br>
-                <a href="https://iviaaa.github.io/S4P_p1/" target="_blank">Webzine: <i>Make it Thick</i></a><br>
-                <a href="https://iviaaa.github.io/UsefulPinyin/"  target="_blank">Pinyin Keyboard</a><br>
-                <a href="ikhyf.html" target="_blank">IKHYF</a><br>
-                <a href="spacenomad.html" target="_blank">Space Nomad</a><br>
-                <a href="designs.html" target="_blank">Printed Publications</a><br>
-                <a href="contact.html" >Contact</a><br>
-        </div>
-    </div>
+    <span id="contactinfo">
+        <!-- <span id="emailadd">hzfromwork@gmail.com</span> -->
+    </span>
+    <!-- click move scroll? -->
+    <span id="bottommsg">
+        © Personal Website of Hongting Zhu
+    </span>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/geometries/TextGeometry.js"></script>
+    <script src="js/contacttext.js"></script>
+
 </body>
 
 </html>
