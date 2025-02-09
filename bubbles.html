@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble World</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bubble:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const minSize = 20; // Minimum size of a bubble
+        const maxSize = 300; // Maximum size of a bubble (can be larger than the screen)
+        const mergeTime = 3000; // Time in milliseconds before bubbles start merging
+        const bubbleCount = 5; // Initial number of bubbles
+        const speed = 1; // Speed of bubble movement
+
+        let bubbles = [];
+
+        // Function to create a bubble
+        function createBubble(x, y, size) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${x - size / 2}px`;
+            bubble.style.top = `${y - size / 2}px`;
+            document.body.appendChild(bubble);
+            return bubble;
+        }
+
+        // Function to split a bubble into smaller bubbles
+        function splitBubble(bubble) {
+            const size = parseInt(bubble.style.width);
+            if (size > minSize * 2) { // Only split if the bubble is larger than twice the minimum size
+                const newSize = size / 2;
+                const x = parseInt(bubble.style.left) + size / 4;
+                const y = parseInt(bubble.style.top) + size / 4;
+
+                // Remove the original bubble
+                bubble.remove();
+                bubbles = bubbles.filter(b => b !== bubble);
+
+                // Create four smaller bubbles
+                const bubble1 = createBubble(x, y, newSize);
+                const bubble2 = createBubble(x + newSize, y, newSize);
+                const bubble3 = createBubble(x, y + newSize, newSize);
+                const bubble4 = createBubble(x + newSize, y + newSize, newSize);
+
+                // Add event listeners to the new bubbles
+                bubble1.addEventListener('mouseout', () => splitBubble(bubble1));
+                bubble2.addEventListener('mouseout', () => splitBubble(bubble2));
+                bubble3.addEventListener('mouseout', () => splitBubble(bubble3));
+                bubble4.addEventListener('mouseout', () => splitBubble(bubble4));
+
+                // Add the new bubbles to the bubbles array
+                bubbles.push(bubble1, bubble2, bubble3, bubble4);
+            }
+        }
+
+        // Function to merge bubbles that are close to each other
+        function mergeBubbles() {
+            for (let i = 0; i < bubbles.length; i++) {
+                for (let j = i + 1; j < bubbles.length; j++) {
+                    const bubble1 = bubbles[i];
+                    const bubble2 = bubbles[j];
+
+                    // Calculate the centers of the bubbles
+                    const x1 = parseInt(bubble1.style.left) + parseInt(bubble1.style.width) / 2;
+                    const y1 = parseInt(bubble1.style.top) + parseInt(bubble1.style.height) / 2;
+                    const x2 = parseInt(bubble2.style.left) + parseInt(bubble2.style.width) / 2;
+                    const y2 = parseInt(bubble2.style.top) + parseInt(bubble2.style.height) / 2;
+
+                    // Calculate the distance between the centers
+                    const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+
+                    // If the bubbles are close enough, merge them
+                    if (distance < (parseInt(bubble1.style.width) + parseInt(bubble2.style.width)) / 2) {
+                        const newSize = parseInt(bubble1.style.width) + parseInt(bubble2.style.width) / 2;
+                        const newX = (x1 + x2) / 2;
+                        const newY = (y1 + y2) / 2;
+
+                        // Remove the original bubbles
+                        bubble1.remove();
+                        bubble2.remove();
+                        bubbles = bubbles.filter(b => b !== bubble1 && b !== bubble2);
+
+                        // Create a new merged bubble
+                        const newBubble = createBubble(newX, newY, newSize);
+                        newBubble.addEventListener('mouseout', () => splitBubble(newBubble));
+                        bubbles.push(newBubble);
+                    }
+                }
+            }
+        }
+
+        // Function to move bubbles around the screen
+        function moveBubbles() {
+            bubbles.forEach(bubble => {
+                const size = parseInt(bubble.style.width);
+                let x = parseInt(bubble.style.left);
+                let y = parseInt(bubble.style.top);
+
+                // Randomly change direction
+                x += (Math.random() - 0.5) * speed * 2;
+                y += (Math.random() - 0.5) * speed * 2;
+
+                // Keep bubbles within the screen bounds
+                x = Math.max(0, Math.min(window.innerWidth - size, x));
+                y = Math.max(0, Math.min(window.innerHeight - size, y));
+
+                bubble.style.left = `${x}px`;
+                bubble.style.top = `${y}px`;
+            });
+
+            requestAnimationFrame(moveBubbles);
+        }
+
+        // Initialize the bubbles
+        function init() {
+            for (let i = 0; i < bubbleCount; i++) {
+                const size = Math.random() * (maxSize - minSize) + minSize;
+                const x = Math.random() * (window.innerWidth - size);
+                const y = Math.random() * (window.innerHeight - size);
+                const bubble = createBubble(x, y, size);
+                bubble.addEventListener('mouseout', () => splitBubble(bubble));
+                bubbles.push(bubble);
+            }
+
+            // Start the merging process
+            setInterval(mergeBubbles, mergeTime);
+
+            // Start moving the bubbles
+            moveBubbles();
+        }
+
+        // Start the program when the page loads
+        window.onload = init;
+    </script>
+</body>
+</html>

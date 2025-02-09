@@ -1,0 +1,115 @@
+/* html {
+cursor: url("images/cursor.png"), auto;
+} */
+
+body {
+    margin: 0;
+    color: white;
+    /* background: linear-gradient(to bottom, white, rgb(0, 0, 255)); */
+    height: 100vh;
+    overflow-x: hidden;
+    /* Disable horizontal scrollbar */
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.body::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+canvas {
+    display: block;
+    pointer-events: none;
+}
+
+#entrance {
+    position: absolute;
+    z-index: 2;
+    font-family: 'Arial Narrow';
+    font-size: 24px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    top: 2%;
+}
+
+#entrance a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#entrance a:visited {
+    color: rgb(252, 15, 192);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#entrance a:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+
+#description a:link {
+    color: blue;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#description a:visited {
+    color: rgb(252, 15, 192);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+#description a:hover {
+    color: blue;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.currentLink {
+    color: blue !important;
+    text-decoration: none;
+}
+
+#bottommsg {
+    position: absolute;
+    z-index: 2;
+    color: blue;
+    font-family: 'Arial Narrow';
+    font-size: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    bottom: 2%;
+}
+
+@font-face {
+    font-family: teletactileRus;
+    src: url("fonts/TeletactileRus.ttf");
+}
+
+
+@font-face {
+    font-family: Pixelify;
+    src: url("fonts/PixelifySans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Jersey;
+    src: url("fonts/Jersey10-Regular.ttf");
+}
+
+
+@font-face {
+    font-family: PixelFJ;
+    src: url("fonts/PixelFJVerdana12pt.ttf");
+}

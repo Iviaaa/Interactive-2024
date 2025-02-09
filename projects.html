@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js GLSL Shader</title>
+    <link rel="icon" type="image/png" href="images/favcon.png" />
+    <link rel="stylesheet" href="style_new.css">
+    <style>
+        /* styles.css */
+        /* body, html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;} /* Prevent default scrollbars */
+        .scroll-container {
+        width: 100vw;
+        height: 100vh;
+        overflow: auto; /* Enable scrolling */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+        }
+
+        .thumbnails {
+        display: inline-block;
+        white-space: nowrap; /* Keep thumbnails in a single row */
+        }
+
+        .thumbnail {
+        display: inline-block;
+        top: 5vh;
+        width: 20vh; /* Adjust as needed */
+        height: 20vh; /* Adjust as needed */
+        margin: 10px;
+        padding: 20px;
+        /* background-color: #ccc; /* Placeholder color */
+        /* border: 1px solid #999; */
+        }
+
+        .two-column {
+            font-size: 20px;
+            font-family: "Arial Narrow";
+            color: blue;
+            gap: 50px;
+            position: fixed;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            max-width: 60vw;
+            max-height: 75vh;
+            /* Space between columns */
+        }
+
+        .left-column {
+            flex: 1;
+            /* Each column takes equal width */
+        }
+
+        .right-column {
+            flex: 2;
+            /* Each column takes equal width */
+        }
+
+        #description{
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <span id="entrance">
+        <a href="index_new.html">[ [] ]</a>
+        <a href="bio.html">[ bio ]</a>
+        <a href="projects.html" class="currentLink">[ projects ]</a>
+        <a href="contact_new.html">[ contact ]</a>
+    </span>
+    <span id="projectcontainer"></span>
+
+    <div class="scroll-container">
+        <div class="thumbnails">
+            <!-- Thumbnails will be dynamically added here -->
+        </div>
+        <div id="detail">
+            <div class="two-column">
+                <div class="right-column">
+                    <img id="detailimg" src="">
+                </div>
+                <div class="left-column" id="description">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span id="bottommsg">
+        © Personal Website of Hongting Zhu
+    </span>
+
+    <script src="js/projectdisplay.js"></script>
+
+</body>
+
+</html>

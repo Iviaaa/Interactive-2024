@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js GLSL Shader</title>
+    <link rel="stylesheet" href="style_new.css">
+    <link rel="icon" type="image/png" href="images/favcon.png" />
+    <style>
+        #bodytext {
+            position: absolute;
+            z-index: -1;
+            color: blue;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            bottom: 50vh;
+            left: 50vw;
+            transform: translate(-50%, 50%);
+        }
+
+        .heading {
+            font-size: 20px;
+            font-family: "Arial Narrow";
+            font-weight: bold;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 50px;
+            /* Space between columns */
+        }
+
+        .left-column {
+            flex: 1;
+            /* Each column takes equal width */
+        }
+
+        .right-column {
+            flex: 2;
+            /* Each column takes equal width */
+        }
+    </style>
+</head>
+
+<body>
+    <span id="entrance">
+        <a href="index_new.html">[ [] ]</a>
+        <a href="bio.html" class="currentLink">[ bio ]</a>
+        <a href="projects.html">[ projects ]</a>
+        <a href="contact_new.html">[ contact ]</a>
+    </span>
+
+    <canvas id="curvedTextCanvas"></canvas>
+    <div id="bodytext" class="two-column">
+        <div class="left-column"><span class="heading">Brief</span><br><br>
+            
+            &lt/> Currently in New Haven, CT. <br>
+            &lt/> BE in Computer Science from University of Michigan in 2020.<br>
+            &lt/> MFA Candidate at Yale School of Art from 2023
+            
+        </div>
+        <div class="right-column">
+            <span class="heading">About Hongting Zhu</span><br><br>
+            Graphic designer / fullstack programmer obssessed with early Internet Brutalism. Her work explores the intersection of technology, creativity, and human experience. She works mainly with motion graphics, interactive applications, visual identities, and dynamic posters.
+        </div>
+    </div>
+    <span id="bottommsg">
+        © Personal Website of Hongting Zhu
+    </span>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+    <script src="https://unpkg.com/three/build/three.min.js"></script>
+    <script src="js/bodytext.js"></script>
+</body>
+
+</html>
