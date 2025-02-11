@@ -14,46 +14,56 @@
         padding: 0;
         overflow: hidden;} /* Prevent default scrollbars */
         .scroll-container {
-        width: 100vw;
-        height: 100vh;
-        overflow: auto; /* Enable scrolling */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            /* Enable scrolling */
+            -ms-overflow-style: none;
+            /* Internet Explorer 10+ */
+            scrollbar-width: none;
+            /* Firefox */
         }
 
         .thumbnails {
-        display: inline-block;
-        white-space: nowrap; /* Keep thumbnails in a single row */
+            display: inline-block;
+            white-space: nowrap;
+            /* Keep thumbnails in a single row */
         }
 
         .thumbnail {
-        display: inline-block;
-        color: blue;
-        font-family: "Arial Narrow";
-        font-size: 24px;
-        text-align: center; 
-        align-items: center; 
-        top: 5vh;
-        width: 20vh; /* Adjust as needed */
-        height: 20vh; /* Adjust as needed */
-        margin: 10px;
-        padding: 20px;
-        /* background-color: #ccc; /* Placeholder color */
-        /* border: 1px solid #999; */
+            display: inline-block;
+            color: blue;
+            font-family: "Arial Narrow";
+            font-size: 24px;
+            text-align: center;
+            align-items: center;
+            top: 5vh;
+            width: 20vh;
+            /* Adjust as needed */
+            height: 20vh;
+            /* Adjust as needed */
+            margin: 10px;
+            padding: 20px;
+            /* background-color: #ccc; /* Placeholder color */
+            /* border: 1px solid #999; */
         }
 
         .two-column {
             font-family: "Arial Narrow";
             color: blue;
+            text-align: center;
+            /* Space between columns */
+        }
+
+        @media screen and (min-width: 601px) {.two-column{
             gap: 50px;
             position: fixed;
             top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
             max-width: 60vw;
             max-height: 75vh;
-            /* Space between columns */
+        }
         }
 
         .left-column {
@@ -66,9 +76,39 @@
             /* Each column takes equal width */
         }
 
-        #description{
+        #description {
             font-size: 24px;
         }
+
+        @media screen and (max-width: 600px) {
+            .desktop-display {
+                display: none
+            }
+
+            .mobile-display {
+                display: block
+            }
+        }
+
+        @media screen and (min-width: 601px) {
+            .desktop-display {
+                display: block
+            }
+
+            .mobile-display {
+                display: none
+            }
+        }
+
+        #itemcontainer{
+            color: blue;
+            font-family: "Arial Narrow";
+            font-size: 20px;
+            text-align: center;
+            align-items: center;
+        }
+
+
     </style>
 </head>
 
@@ -79,21 +119,37 @@
         <a href="projects.html" class="currentLink">[ projects ]</a>
         <a href="contact.html">[ contact ]</a>
     </span>
-    <span id="projectcontainer"></span>
-
-    <div class="scroll-container">
-        <div class="thumbnails">
-            <div class="thumbnail">scroll direction→</div>
-            <!-- Thumbnails will be dynamically added here -->
-        </div>
-        <div id="detail">
-            <div class="two-column">
-                <div class="right-column">
-                    <a id="imghref" href="javascript:void(0)" style="cursor: default;"><img id="detailimg" src=""></a>
-                </div>
-                <div class="left-column" id="description">
+    <div class="desktop-display">
+        <div class="scroll-container">
+            <div class="thumbnails">
+                <div class="thumbnail">scroll direction→</div>
+                <!-- Thumbnails will be dynamically added here -->
+            </div>
+            <div id="detail">
+                <div class="two-column">
+                    <div class="right-column">
+                        <a id="imghref" href="javascript:void(0)" style="cursor: default;"><img id="detailimg"
+                                src=""></a>
+                    </div>
+                    <div class="left-column" id="description">
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="mobile-display">
+        <div id="mobilecontainer" class="scroll-container">
+            <div id="itemcontainer">
+            <!-- <div class="two-column"> -->
+                <!-- <div id="right-mobilecontainer" class="right-column"> -->
+                    <!-- <a id="mobile-imghref" href="javascript:void(0)" style="cursor: default;"><img id="detailimg"
+                            src=""></a> -->
+                <!-- </div>
+                <div class="left-column" id="left-description">
+                </div> -->
+            <!-- </div> -->
+        </div>
         </div>
     </div>
 
@@ -102,6 +158,7 @@
     </span>
 
     <script src="js/projectdisplay.js"></script>
+    <script src="js/mobiledisplay.js"></script>
 
 </body>
 

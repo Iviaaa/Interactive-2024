@@ -12,12 +12,22 @@
             position: absolute;
             z-index: -1;
             color: blue;
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 20px;
+            font-family: 'Arial Narrow', 'Times New Roman', Times, serif;
             bottom: 50vh;
             left: 50vw;
+            width: 70vw;
             transform: translate(-50%, 50%);
         }
+        
+        @media screen and (max-width: 600px) {#bodytext {
+            font-size: clamp(16px, 3vw, 20px);
+        }
+        }
+        @media screen and (min-width: 601px) {#bodytext {
+            font-size: 20px;
+        }
+        }
+
 
         .heading {
             font-size: 20px;
@@ -27,8 +37,16 @@
 
         .two-column {
             display: flex;
-            gap: 50px;
             /* Space between columns */
+        }
+
+        @media screen and (max-width: 600px) {.two-column {
+            gap: 16px;
+        }
+        }
+        @media screen and (min-width: 601px) {.two-column {
+            gap: 50px;
+        }
         }
 
         .left-column {

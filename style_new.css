@@ -26,31 +26,41 @@ canvas {
     pointer-events: none;
 }
 
+@media screen and (min-width: 601px) {#entrance {
+    font-size: 24px;
+    padding-left: 10px;
+}
+}
+
+@media screen and (max-width: 600px) {#entrance {
+    font-size: 24px;
+    padding-left: 10px;
+}
+}
+
 #entrance {
     position: absolute;
     z-index: 2;
     font-family: 'Arial Narrow';
-    font-size: 24px;
-    padding-left: 10px;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
     top: 2%;
 }
 
-#entrance a:link {
+a:link {
     color: blue;
     background-color: transparent;
     text-decoration: none;
 }
 
-#entrance a:visited {
+a:visited {
     color: rgb(252, 15, 192);
     background-color: transparent;
     text-decoration: none;
 }
 
-#entrance a:hover {
+a:hover {
     color: blue;
     background-color: transparent;
     text-decoration: underline;
@@ -80,12 +90,21 @@ canvas {
     text-decoration: none;
 }
 
+@media screen and (min-width: 601px) {#bottommsg {
+    font-size: 20px;
+}
+}
+
+@media screen and (max-width: 600px) {#bottommsg {
+    font-size: 20px;
+}
+}
+
 #bottommsg {
     position: absolute;
     z-index: 2;
     color: blue;
     font-family: 'Arial Narrow';
-    font-size: 20px;
     display: flex;
     justify-content: space-evenly;
     width: 100%;

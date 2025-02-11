@@ -14,8 +14,8 @@ let isAnimating = false;
 
 // Generate random points for the curve
 let points = Array.from({ length: 30 }, () => ({
-    x: Math.min(Math.max(200, Math.random() * (canvas.width)), canvas.width - 200),
-    y: Math.min(Math.max(200, Math.random() * (canvas.height)), canvas.height - 200),
+    x: Math.min(Math.max(100, Math.random() * (canvas.width)), canvas.width - 100),
+    y: Math.min(Math.max(100, Math.random() * (canvas.height)), canvas.height - 100),
 }));
 
 // Function to interpolate points (Catmull-Rom Spline)
