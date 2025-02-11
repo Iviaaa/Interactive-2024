@@ -26,12 +26,17 @@ function createThumbnail() {
 function showDetail(ind) {
     const detailImg = document.getElementById('detailimg');
     const detailDes = document.getElementById('description');
+    const imageHref = document.getElementById('imghref');
     detailImg.src = imgArr[Number(ind) % imgArr.length];
     detailImg.style = "max-height:50vh; max-width:100%;";
     if (imgLink[Number(ind) % imgArr.length] != '') {
+        imageHref.href = imgLink[Number(ind) % imgArr.length];
+        imageHref.style ="cursor: pointer;"
         detailDes.innerHTML = '<a href="' + imgLink[Number(ind) % imgArr.length] + '" target="_blank">' + imgDes[Number(ind) % imgArr.length] + '</a>';
     }
     else {
+        imageHref.href = "javascript:void(0)";
+        imageHref.style ="cursor: default;"
         detailDes.innerHTML = imgDes[Number(ind) % imgArr.length];
     }
     detailDes.style = "padding: 20px;";

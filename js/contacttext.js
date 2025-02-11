@@ -19,7 +19,19 @@ scene.add(ambientLight);
 const fontLoader = new THREE.FontLoader();
 fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
     // Create the 3D text geometry
-    const textGeometry = new THREE.TextGeometry('hzfromwork@gmail.com', {
+    const textGeometry1 = new THREE.TextGeometry('hzfromwork@gmail.com', {
+        font: font,
+        size: 1, // Size of the text
+        height: 0.4, // Depth of the text
+        curveSegments: 12, // Smoothness of curves
+        // bevelEnabled: true, // Add bevel (chamfered edges)
+        // bevelThickness: 0.1, // Depth of the bevel
+        // bevelSize: 0.1, // Size of the bevel
+        // bevelOffset: 0, // Offset of the bevel
+        // bevelSegments: 5, // Smoothness of the bevel
+    });
+
+    const textGeometry2 = new THREE.TextGeometry('ins@wcingz', {
         font: font,
         size: 1, // Size of the text
         height: 0.4, // Depth of the text
@@ -32,7 +44,8 @@ fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.
     });
 
     // Center the text geometry
-    textGeometry.center();
+    textGeometry1.center();
+    textGeometry2.center();
 
     // Create a material for the text
     const textMaterial = new THREE.MeshPhongMaterial({
@@ -41,8 +54,12 @@ fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.
     });
 
     // Create a mesh with the text geometry and material
-    const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-    scene.add(textMesh);
+    const textMesh1 = new THREE.Mesh(textGeometry1, textMaterial);
+    const textMesh2 = new THREE.Mesh(textGeometry2, textMaterial);
+    textMesh1.position.set(0, 1, 1);
+    textMesh2.position.set(0, -1, 1);
+    scene.add(textMesh1);
+    scene.add(textMesh2);
 
     // Position the camera
     camera.position.z = 20;
@@ -62,7 +79,8 @@ fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.
         const angle = amplitude * Math.sin(speed * time);
 
         // Apply the rotation to the text
-        textMesh.rotation.y = angle;
+        textMesh1.rotation.y = angle;
+        textMesh2.rotation.y = angle;
 
         // Render the scene
         renderer.render(scene, camera);
